@@ -51,6 +51,27 @@
     </None>
     <None Include="ClassDiagram1.cd" />
     <None Include="ClassDiagram2.cd" />
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_Bottom.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_SL.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_SR.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_Top.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_BR.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_TL.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_TR.bmp">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="eBeamSDKMFC.h">

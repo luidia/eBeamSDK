@@ -97,6 +97,13 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_BR.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_TL.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\cal_pen_TR.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_Bottom.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_SL.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_SR.bmp" />
+    <None Include="..\..\eBeamSDKMFC\image\eBeamEdge_selected_Top.bmp" />
     <None Include="..\image\bitmap1.bmp" />
     <None Include="..\image\cal_pen_BL.bmp" />
     <None Include="..\image\cal_pen_BR.bmp" />

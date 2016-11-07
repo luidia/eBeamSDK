@@ -271,27 +271,30 @@ int CeBeamSDKMFCDlg::DrawStrokeFrame(void)
 			break;
 		case 1: //red
 		pn.SetColor(Color(255,255,0,0));
-
+		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 2: //blue
 		pn.SetColor(Color(255,0,0,255));
+		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 3: //green
 		pn.SetColor(Color(255,0,255,0));
+		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 4: //black
 		pn.SetColor(Color(255,0,0,0));
+		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 5:
 		pn.SetColor(Color(255,255,255,255));
 			break;
 		case 6: //big eraser
 		pn.SetColor(Color(255,255,255,255));
-		pn.SetWidth(10);
+		pn.SetWidth(10); // Big Eraser Width should customized according to your app spec.
 			break;
 		case 7: //eraser cap
 		pn.SetColor(Color(255,255,255,255));
-		pn.SetWidth(3);
+		pn.SetWidth(3);// Eraser cap width should customized according to your app spec.
 			break;
 		}
 		gr.DrawLine(&pn,ptOld,ptNew);

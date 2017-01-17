@@ -68,6 +68,7 @@ BEGIN_MESSAGE_MAP(CeBeamSDKMFCDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BTN_LISTEN, &CeBeamSDKMFCDlg::OnBnClickedBtnListen)
 	ON_MESSAGE(WM_EBEAM_PEN_DATA,&CeBeamSDKMFCDlg::OnMsgEbeamPenData)
 	ON_MESSAGE(WM_EBEAM_DEVICE_STATUS,&CeBeamSDKMFCDlg::OnMsgEbeamDeviceStatus)
+	ON_MESSAGE(WM_EBEAM_STLUS_FUNC_BTN,&CeBeamSDKMFCDlg::OnMsgEbeamStylusFuncBtn)
 	ON_BN_CLICKED(IDC_CHK_DRAW, &CeBeamSDKMFCDlg::OnBnClickedChkDraw)
 	ON_BN_CLICKED(IDC_BTN_CALIBRATION2, &CeBeamSDKMFCDlg::OnBnClickedBtnCalibration2)
 	ON_BN_CLICKED(IDC_BTN_CLEAR, &CeBeamSDKMFCDlg::OnBnClickedBtnClear)
@@ -172,12 +173,19 @@ void CeBeamSDKMFCDlg::OnBnClickedBtnListen()
 	EBeamStartListener(this->GetSafeHwnd());
 
 }
+LRESULT CeBeamSDKMFCDlg::OnMsgEbeamStylusFuncBtn(WPARAM wParam,LPARAM lParam)
+{
+
+	AfxMessageBox(L"Stylus function Button Clicked!!!");
+	SetDlgItemText(IDC_EDIT_BUTTON,L"Stylus function Button Clicked!!!");
+	return 0;
+}
 LRESULT CeBeamSDKMFCDlg::OnMsgEbeamPenData(WPARAM wParam,LPARAM lParam)
 {
 	EBeamPenData *ev = (EBeamPenData *) wParam;
-	//CString ss;
-	//ss.Format(L"Main Windows Get X=%.f Y=%.f",ev->pos.x,ev->pos.y);
-	//SetDlgItemText(IDC_EDIT1,ss);
+	CString ss2;
+	ss2.Format(L"BTN=%.f FLAG=%.f\n",ev->btn,ev->flag);
+	TRACE(ss2);
 	CString ss;
 	ss.Format(L"%d",ev->RawX);
 	SetDlgItemText(IDC_EDIT_X,ss);

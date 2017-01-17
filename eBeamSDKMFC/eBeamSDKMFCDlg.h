@@ -39,6 +39,7 @@ public:
 	afx_msg void OnBnClickedBtnListen();
 	LRESULT OnMsgEbeamPenData(WPARAM wParam, LPARAM lParam);
 	LRESULT OnMsgEbeamDeviceStatus(WPARAM wParam, LPARAM lParam);
+	LRESULT OnMsgEbeamStylusFuncBtn(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBnClickedChkDraw();
 	int DrawStrokeFrame(void);
 	afx_msg void OnBnClickedBtnCalibration2();

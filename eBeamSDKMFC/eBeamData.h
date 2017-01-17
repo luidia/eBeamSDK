@@ -35,7 +35,7 @@ typedef enum
 
 #define WM_EBEAM_PEN_DATA			WM_USER + 10
 #define WM_EBEAM_DEVICE_STATUS		WM_USER + 11
-
+#define WM_EBEAM_STLUS_FUNC_BTN		WM_USER + 13
 extern "C" __declspec(dllimport) int  WINAPI EBeamStartListener(HWND hWnd);
 extern "C" __declspec(dllimport) int  WINAPI EBeamSetReceiveHandle(HWND hWnd);
 extern "C" __declspec(dllimport) int  WINAPI EBeamSetCalibration(int TopLeftX,int TopLeftY,int BottomRightX,int BottomRightY,

@@ -205,6 +205,7 @@ LRESULT CeBeamSDKMFCDlg::OnMsgEbeamPenData(WPARAM wParam,LPARAM lParam)
 	ColorCode=ev->Color;
 	if(bDraw == TRUE )
 	{
+
 		if(ev->btn == 1 )
 		{
 			if(bClicked == FALSE)  // First Down
@@ -305,7 +306,18 @@ int CeBeamSDKMFCDlg::DrawStrokeFrame(void)
 		pn.SetWidth(3);// Eraser cap width should customized according to your app spec.
 			break;
 		}
-		gr.DrawLine(&pn,ptOld,ptNew);
+		RECT rt;
+		GetDlgItem(IDC_FRAME_DRAW)->GetClientRect(&rt);
+		Gdiplus::PointF ptOld2,ptNew2;
+		ptOld2.X = ptOld.X *(rt.right - rt.left ) / 65535.0;
+		ptOld2.Y = ptOld.Y *(rt.bottom - rt.top ) / 65535.0;
+		ptNew2.X = ptNew.X * (rt.right - rt.left ) / 65535.0;
+		ptNew2.Y = ptNew.Y * (rt.bottom - rt.top ) / 65535.0;
+		CString ss;
+		ss.Format(L"ptOld.X=%d ptOld.Y=%d ptNew.X=%d ptNew.Y=%d rt.w=%d ft.h=%d",
+			ptOld.X,ptOld.Y,ptNew.X,ptNew.Y,rt.right - rt.left,rt.bottom - rt.top);
+		TRACE(ss);
+		gr.DrawLine(&pn,ptOld2,ptNew2);
 		return 0;
 }
 

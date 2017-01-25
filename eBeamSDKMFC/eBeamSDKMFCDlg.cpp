@@ -45,9 +45,6 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CeBeamSDKMFCDlg 대화 상자
-
-
 
 
 CeBeamSDKMFCDlg::CeBeamSDKMFCDlg(CWnd* pParent /*=NULL*/)
@@ -72,18 +69,16 @@ BEGIN_MESSAGE_MAP(CeBeamSDKMFCDlg, CDialogEx)
 	ON_BN_CLICKED(IDC_CHK_DRAW, &CeBeamSDKMFCDlg::OnBnClickedChkDraw)
 	ON_BN_CLICKED(IDC_BTN_CALIBRATION2, &CeBeamSDKMFCDlg::OnBnClickedBtnCalibration2)
 	ON_BN_CLICKED(IDC_BTN_CLEAR, &CeBeamSDKMFCDlg::OnBnClickedBtnClear)
+	ON_BN_CLICKED(IDC_BTN_LISTEN2, &CeBeamSDKMFCDlg::OnBnClickedBtnListen2)
 END_MESSAGE_MAP()
 
 
-// CeBeamSDKMFCDlg 메시지 처리기
 
 BOOL CeBeamSDKMFCDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// 시스템 메뉴에 "정보..." 메뉴 항목을 추가합니다.
 
-	// IDM_ABOUTBOX는 시스템 명령 범위에 있어야 합니다.
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -326,8 +321,6 @@ int CeBeamSDKMFCDlg::DrawStrokeFrame(void)
 
 void CeBeamSDKMFCDlg::OnBnClickedBtnCalibration2()
 {
-	// TODO: ¿©±â¿¡ ÄÁÆ®·Ñ ¾Ë¸² Ã³¸®±â ÄÚµå¸¦ Ãß°¡ÇÕ´Ï´Ù.
-	// TODO: 
 	CCalibrationDlg dlg;
 	if(dlg.DoModal() == IDOK)
 	{
@@ -364,4 +357,12 @@ void CeBeamSDKMFCDlg::OnBnClickedBtnClear()
 {
 
 	Invalidate(TRUE);
+}
+
+
+void CeBeamSDKMFCDlg::OnBnClickedBtnListen2()
+{
+
+	EBeamStopListener();
+
 }

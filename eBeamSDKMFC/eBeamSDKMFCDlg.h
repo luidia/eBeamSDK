@@ -44,4 +44,5 @@ public:
 	int DrawStrokeFrame(void);
 	afx_msg void OnBnClickedBtnCalibration2();
 	afx_msg void OnBnClickedBtnClear();
+	afx_msg void OnBnClickedBtnListen2();
 };

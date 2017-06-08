@@ -269,23 +269,28 @@ int CeBeamSDKMFCDlg::DrawStrokeFrame(void)
 		Graphics  gr(pDC->m_hDC);
 
 		Pen	pn(Color(255,0,0,255));
+		BOOL bSleeve = FALSE;
 		switch(ColorCode)
 		{
 		case 0:
 			break;
 		case 1: //red
+		bSleeve = TRUE;
 		pn.SetColor(Color(255,255,0,0));
 		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 2: //blue
+			bSleeve = TRUE;
 		pn.SetColor(Color(255,0,0,255));
 		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 3: //green
+			bSleeve = TRUE;
 		pn.SetColor(Color(255,0,255,0));
 		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
 		case 4: //black
+			bSleeve = TRUE;
 		pn.SetColor(Color(255,0,0,0));
 		pn.SetWidth(2); // Pen Width should be customized according to your app spec.
 			break;
@@ -293,26 +298,36 @@ int CeBeamSDKMFCDlg::DrawStrokeFrame(void)
 		pn.SetColor(Color(255,255,255,255));
 			break;
 		case 6: //big eraser
+			bSleeve = TRUE;
 		pn.SetColor(Color(255,255,255,255));
 		pn.SetWidth(10); // Big Eraser Width should customized according to your app spec.
 			break;
 		case 7: //eraser cap
+			bSleeve = TRUE;
 		pn.SetColor(Color(255,255,255,255));
 		pn.SetWidth(3);// Eraser cap width should customized according to your app spec.
 			break;
 		}
 		RECT rt;
 		GetDlgItem(IDC_FRAME_DRAW)->GetClientRect(&rt);
-		Gdiplus::PointF ptOld2,ptNew2;
-		ptOld2.X = ptOld.X *(rt.right - rt.left ) / 65535.0;
-		ptOld2.Y = ptOld.Y *(rt.bottom - rt.top ) / 65535.0;
-		ptNew2.X = ptNew.X * (rt.right - rt.left ) / 65535.0;
-		ptNew2.Y = ptNew.Y * (rt.bottom - rt.top ) / 65535.0;
-		CString ss;
-		ss.Format(L"ptOld.X=%d ptOld.Y=%d ptNew.X=%d ptNew.Y=%d rt.w=%d ft.h=%d",
-			ptOld.X,ptOld.Y,ptNew.X,ptNew.Y,rt.right - rt.left,rt.bottom - rt.top);
-		TRACE(ss);
-		gr.DrawLine(&pn,ptOld2,ptNew2);
+		if(bSleeve)
+		{
+			gr.DrawLine(&pn,ptOld,ptNew);
+
+		}else{
+			Gdiplus::PointF ptOld2,ptNew2;
+
+			ptOld2.X = ptOld.X *(rt.right - rt.left ) / 65535.0;
+			ptOld2.Y = ptOld.Y *(rt.bottom - rt.top ) / 65535.0;
+			ptNew2.X = ptNew.X * (rt.right - rt.left ) / 65535.0;
+			ptNew2.Y = ptNew.Y * (rt.bottom - rt.top ) / 65535.0;
+			CString ss;
+			ss.Format(L"ptOld.X=%d ptOld.Y=%d ptNew.X=%d ptNew.Y=%d rt.w=%d ft.h=%d",
+				ptOld.X,ptOld.Y,ptNew.X,ptNew.Y,rt.right - rt.left,rt.bottom - rt.top);
+			TRACE(ss);
+			gr.DrawLine(&pn,ptOld2,ptNew2);
+
+		}
 		return 0;
 }
 
